@@ -47,7 +47,7 @@ Training data:
 0–800 h
 
 Testing data:
- >800 h
+800 h+
 
 Physics model only:
 RMSE = 59.40 mV, MAE = 52.81 mV, R2 = -1.6317
