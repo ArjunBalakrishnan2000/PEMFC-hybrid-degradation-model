@@ -72,7 +72,7 @@ for hr in TIMESTAMPS_HR:
 fc["R_ohmic_stack"] = np.interp(fc["hours_elapsed"], TIMESTAMPS_HR, b_stack_list)
 fc["R_ohmic_cell"] = fc["R_ohmic_stack"] / N_CELLS
 
-# Calculating the optimal circuit voltage, concentration loss factor and mass transport factor
+# Calculating the optimal circuit voltage, activation loss factor and mass transport factor
 
 e_ocv_list, a_factor, c_factor = [], [], []
 
@@ -118,8 +118,8 @@ fc["cumulative_Ah"] = (fc["I (A)"] * dt_hr).cumsum()
 # Splitting the data
 train = fc[fc["hours_elapsed"] <= SPLIT].copy()
 test = fc[fc["hours_elapsed"] > SPLIT].copy()
-# Calculating the degradation trend
 
+# Calculating the degradation trend
 train["residual_smooth"] = (
     train["Ustack_residual"].rolling(window=51, center=True, min_periods=20).median()
 )
